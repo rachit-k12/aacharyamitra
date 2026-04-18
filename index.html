@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aacharyamitra — Aarohan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:    #1a3a5c;
+    --gold:    #c8973a;
+    --gold-lt: #f0ddb0;
+    --cream:   #fdf8f0;
+    --ink:     #2c2c2c;
+    --mist:    #e8dfd0;
+    --sage:    #5c7a6a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 60px rgba(0,0,0,0.08);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 72px 64px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: rgba(200,151,58,0.08);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(200,151,58,0.05);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 62px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+  }
+
+  .hero-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  .hero-tagline {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    max-width: 500px;
+    line-height: 1.8;
+  }
+
+  /* ── PULL QUOTE BAND ── */
+  .quote-band {
+    background: var(--gold);
+    padding: 36px 64px;
+  }
+  .quote-band p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.5;
+    text-align: center;
+  }
+  .quote-band p::before { content: '\201C'; }
+  .quote-band p::after  { content: '\201D'; }
+
+  /* ── BODY SECTIONS ── */
+  .content {
+    padding: 64px;
+  }
+
+  .section {
+    margin-bottom: 56px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .section-body {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+
+  .section-body + .section-body {
+    margin-top: 4px;
+  }
+
+  /* ── DECORATIVE RULE ── */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+  }
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--mist);
+  }
+  .ornament span {
+    color: var(--gold);
+    font-size: 18px;
+  }
+
+  /* ── THREE PILLARS ── */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin: 32px 0;
+    background: var(--mist);
+  }
+  .pillar {
+    background: #fff;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .pillar-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .pillar-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .pillar-desc {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.7;
+  }
+
+  /* ── WHAT WE OFFER ── */
+  .offerings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 28px 0;
+  }
+  .offering-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .offering-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .offering-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* ── MILESTONES ── */
+  .milestones {
+    background: var(--navy);
+    padding: 48px 64px;
+  }
+  .milestones-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--gold-lt);
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.08);
+  }
+  .stat {
+    background: rgba(255,255,255,0.04);
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+  /* ── JOURNEY ── */
+  .journey-list {
+    border-left: 2px solid var(--mist);
+    padding-left: 28px;
+    margin: 20px 0;
+  }
+  .journey-item {
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .journey-item::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .journey-item strong {
+    color: var(--navy);
+    font-weight: 500;
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── INNER QUOTE ── */
+  .inner-quote {
+    border-left: 3px solid var(--gold);
+    padding: 20px 28px;
+    margin: 32px 0;
+    background: var(--cream);
+  }
+  .inner-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--cream);
+    border-top: 1px solid var(--mist);
+    padding: 36px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--navy);
+  }
+  .footer-brand span {
+    display: block;
+    font-size: 12px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .footer-meta {
+    text-align: right;
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.8;
+  }
+
+  @media print {
+    .page { box-shadow: none; }
+    body  { background: #fff; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Aarohan · Rising Above · Since 2008</div>
+    <div class="hero-title">Aacharya<em>mitra</em></div>
+    <div class="hero-subtitle">Life & Spiritual Coach</div>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">
+      A presence that helps you find your way back — not to where someone tells you to go,
+      but to who you have always been.
+    </p>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="quote-band">
+    <p>It doesn't try to change you into something else. It simply brings you closer to who you have always been.</p>
+  </div>
+
+  <!-- BODY CONTENT -->
+  <div class="content">
+
+    <!-- WHO IS -->
+    <div class="section">
+      <div class="section-label">An Introduction</div>
+      <div class="section-title">Not a title. A presence.</div>
+      <p class="section-body">
+        The word <em>Aacharyamitra</em> holds within it a quiet wholeness. <em>Acharya</em> — one who teaches not through instruction
+        alone, but through lived wisdom. <em>Mitra</em> — a trusted companion, someone who walks alongside rather than ahead.
+        Together, they describe something that is rare in most institutional settings: a person who is simply, fully, there for you.
+      </p>
+      <p class="section-body">
+        You may come to him as a student carrying academic pressure, as a parent navigating your child's world, or as someone simply
+        looking for a little more steadiness in your life. Whatever brings you here, what you find is not judgment, not prescription —
+        but a space where you are genuinely heard.
+      </p>
+    </div>
+
+    <div class="ornament"><span>✦</span></div>
+
+    <!-- THE APPROACH -->
+    <div class="section">
+      <div class="section-label">How It Works</div>
+      <div class="section-title">Presence over prescription.</div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <span class="pillar-icon">🪷</span>
+          <div class="pillar-name">Listen</div>
+          <p class="pillar-desc">Every conversation begins with stillness. Not with answers, but with space to be heard.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">🌿</span>
+          <div class="pillar-name">Reflect</div>
+          <p class="pillar-desc">Gently guiding you inward — toward your own clarity, at your own pace.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">☀️</span>
+          <div class="pillar-name">Flourish</div>
+          <p class="pillar-desc">Not a quick fix — a lasting shift in how you carry yourself through life.</p>
+        </div>
+      </div>
+
+      <p class="section-body">
+        Aacharyamitra's approach is grounded in traditional Indian knowledge systems — the science of yoga, breathwork,
+        meditation, and the classical understanding of the human being as a whole: physical, mental, emotional, and spiritual.
+        These are not exotic practices. They are simple, sustainable ways of living that generations have returned to, because they work.
+      </p>
+    </div>
+
+    <div class="ornament"><span>✦</span></div>
+
+    <!-- OFFERINGS -->
+    <div class="section">
+      <div class="section-label">What Is Offered</div>
+      <div class="section-title">Something for wherever you are.</div>
+      <p class="section-body">
+        Aarohan's programs are designed to meet people where they are — students, parents, educators, and professionals alike.
+        Each offering is rooted in practice, and shaped around the real pressures of modern life.
+      </p>
+
+      <div class="offerings">
+        <div class="offering-item">
+          <div class="offering-dot"></div>
+          <div class="offering-text"><strong style="color:#1a3a5c;font-weight:500;">One-to-One Sessions</strong><br/>Personal guidance through life's crossroads — academic, emotional, or existential.</div>
+        </div>
+        <div class="offering-item">
+          <div class="offering-dot"></div>
+          <div class="offering-text"><strong style="color:#1a3a5c;font-weight:500;">Yoga & Breathwork Workshops</strong><br/>Body-based practices that bring calm, focus, and physical wellbeing.</div>
+        </div>
+        <div class="offering-item">
+          <div class="offering-dot"></div>
+          <div class="offering-text"><strong style="color:#1a3a5c;font-weight:500;">Meditation & Inner Stillness</strong><br/>Learning to pause — and to find something steady beneath the noise.</div>
+        </div>
+        <div class="offering-item">
+          <div class="offering-dot"></div>
+          <div class="offering-text"><strong style="color:#1a3a5c;font-weight:500;">Stress & Emotional Balance</strong><br/>Practical tools for navigating pressure without losing yourself in it.</div>
+        </div>
+        <div class="offering-item">
+          <div class="offering-dot"></div>
+          <div class="offering-text"><strong style="color:#1a3a5c;font-weight:500;">Retreats — Sambhav & Shakti</strong><br/>Immersive multi-day experiences for deep renewal and self-understanding.</div>
+        </div>
+        <div class="offering-item">
+          <div class="offering-dot"></div>
+          <div class="offering-text"><strong style="color:#1a3a5c;font-weight:500;">Parenting Workshops</strong><br/>Supporting parents to understand, connect with, and nurture their children.</div>
+        </div>
+        <div class="offering-item">
+          <div class="offering-dot"></div>
+          <div class="offering-text"><strong style="color:#1a3a5c;font-weight:500;">Counselling Sessions</strong><br/>A safe, non-judgmental space for whatever you need to bring.</div>
+        </div>
+        <div class="offering-item">
+          <div class="offering-dot"></div>
+          <div class="offering-text"><strong style="color:#1a3a5c;font-weight:500;">Science of Living · Soul Trek</strong><br/>Credit courses weaving self-awareness into the fabric of academic life.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- MILESTONES BAND -->
+  <div class="milestones">
+    <div class="milestones-title">A Journey of Quiet Impact</div>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">1996</div>
+        <div class="stat-label">Year the journey<br/>began</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2000+</div>
+        <div class="stat-label">One-to-one<br/>student sessions</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1200+</div>
+        <div class="stat-label">Students through<br/>immersive retreats</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">400+</div>
+        <div class="stat-label">Workshops on yoga,<br/>breathwork & meditation</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Years at Lakshya<br/>as Yoga Acharya</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years with<br/>Thapar University</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOURNEY SECTION -->
+  <div class="content">
+
+    <div class="section" style="margin-top:8px;">
+      <div class="section-label">The Person Behind It</div>
+      <div class="section-title">A life shaped by practice.</div>
+      <p class="section-body">
+        Paroksh Sharma Sujay's journey did not begin with a plan. It began in 1996, with a single step into yoga and meditation —
+        and slowly, over years of <em>abhyas</em> and inner exploration, what began as a practice became a way of being.
+      </p>
+
+      <div class="journey-list">
+        <div class="journey-item">
+          <strong>Kaivalyadhama, Oldest Yoga Ashram</strong>
+          Deep formation in traditional yoga — moving from practice into lived understanding.
+        </div>
+        <div class="journey-item">
+          <strong>Lakshya Institute · 2008–2020</strong>
+          12+ years as Yoga Acharya and Emotional Counsellor. Countless conversations, silences, and moments of quiet support that students carried long beyond classrooms.
+        </div>
+        <div class="journey-item">
+          <strong>The Oberoi Vanyavilas</strong>
+          2+ years working with international clientele — bringing this work across cultures and contexts.
+        </div>
+        <div class="journey-item">
+          <strong>Thapar University · 10+ Years</strong>
+          A long, trusted association as a visiting counsellor — speaking to the depth of relationship this work builds.
+        </div>
+        <div class="journey-item">
+          <strong>Rishihood University · Since August 2023</strong>
+          Currently serving as Life & Spiritual Coach — quietly shaping the wellness ecosystem of an entire university.
+        </div>
+      </div>
+    </div>
+
+    <div class="inner-quote">
+      <p>
+        What truly defines his journey is not where he studied, or what he has done,
+        but how deeply he has been able to be there for people.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">A Closing Thought</div>
+      <div class="section-title">You don't have to be in crisis to come.</div>
+      <p class="section-body">
+        Aacharyamitra is not only for those who are struggling. It is for anyone who wants to live with a little more
+        awareness, a little more balance — who senses that there is more to them than the pace of daily life allows them to discover.
+      </p>
+      <p class="section-body">
+        Over time, this work has taken many forms — retreats like Sambhav and Shakti, workshops on happiness, balance,
+        parenting, and inner wellbeing — but the essence has remained unchanged:
+        <em>a sincere intent to help individuals come closer to themselves.</em>
+      </p>
+      <p class="section-body">
+        If something in these words feels familiar — if you have felt the need for exactly this kind of presence in your life
+        or in your institution — we invite you to reach out. Simply begin.
+      </p>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">
+      Paroksh Sharma Sujay
+      <span>Aacharyamitra · Life & Spiritual Coach</span>
+    </div>
+    <div class="footer-meta">
+      Aarohan — Rising Above<br/>
+      Since 2008 · Spreading Smiles & Love
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
