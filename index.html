@@ -78,29 +78,44 @@
     z-index: 2;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
   }
-  .hero-portrait::before {
-    content: '';
+  .hero-compass {
     position: absolute;
-    bottom: 8%;
+    width: 120%;
+    padding-bottom: 120%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 88%;
-    padding-bottom: 88%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,151,58,0.28) 0%, rgba(200,151,58,0.08) 45%, transparent 70%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23c8973a' stroke-width='0.45'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='74'/%3E%3Ccircle cx='100' cy='100' r='56'/%3E%3Cpath d='M100 6 L106 94 L194 100 L106 106 L100 194 L94 106 L6 100 L94 94 Z'/%3E%3Cpath d='M100 6 L106 94 L194 100 L106 106 L100 194 L94 106 L6 100 L94 94 Z' transform='rotate(45 100 100)'/%3E%3Cpath d='M100 6 L106 94 L194 100 L106 106 L100 194 L94 106 L6 100 L94 94 Z' transform='rotate(22.5 100 100)'/%3E%3Cpath d='M100 6 L106 94 L194 100 L106 106 L100 194 L94 106 L6 100 L94 94 Z' transform='rotate(67.5 100 100)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.22;
     z-index: 0;
     pointer-events: none;
   }
-  .hero-portrait img {
+  .hero-portrait-frame {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 340px;
-    height: auto;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: var(--cream);
+    overflow: hidden;
+    box-shadow:
+      0 0 0 2px var(--gold),
+      0 0 0 8px rgba(200,151,58,0.18),
+      0 0 0 10px var(--gold),
+      0 24px 50px rgba(0,0,0,0.35);
+  }
+  .hero-portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
     display: block;
-    filter: drop-shadow(0 24px 40px rgba(0,0,0,0.35));
   }
 
   .hero-eyebrow {
@@ -598,13 +613,12 @@
       order: -1;
       justify-content: center;
     }
-    .hero-portrait img {
+    .hero-portrait-frame {
       max-width: 240px;
     }
-    .hero-portrait::before {
-      bottom: 4%;
-      width: 78%;
-      padding-bottom: 78%;
+    .hero-compass {
+      width: 140%;
+      padding-bottom: 140%;
     }
     .hero-title { font-size: 48px; }
     .hero-subtitle { font-size: 19px; margin-bottom: 36px; }
@@ -667,8 +681,13 @@
       bottom: -50px; left: 10px;
       width: 130px; height: 130px;
     }
-    .hero-portrait img {
-      max-width: 200px;
+    .hero-portrait-frame {
+      max-width: 210px;
+      box-shadow:
+        0 0 0 2px var(--gold),
+        0 0 0 6px rgba(200,151,58,0.2),
+        0 0 0 8px var(--gold),
+        0 18px 36px rgba(0,0,0,0.3);
     }
     .bio-avatar { gap: 16px; margin-bottom: 20px; }
     .bio-avatar img { width: 64px; height: 64px; }
@@ -800,7 +819,10 @@
       </p>
     </div>
     <div class="hero-portrait">
-      <img src="assets/paroksh.png" alt="Portrait of Paroksh Sharma Sujay" loading="eager" width="500" height="500"/>
+      <div class="hero-compass" aria-hidden="true"></div>
+      <div class="hero-portrait-frame">
+        <img src="assets/paroksh.png" alt="Portrait of Paroksh Sharma Sujay" loading="eager" width="500" height="500"/>
+      </div>
     </div>
   </div>
 
